@@ -24,6 +24,7 @@ class PostController extends Controller
         //$post = Post::findOrFail($id);
         return Inertia::render('Post/ReadPost', [
             'post' => new PostResource($post),
+            'links' => $post->links
         ]);
     }
 }

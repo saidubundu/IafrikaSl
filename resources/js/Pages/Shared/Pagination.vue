@@ -3,7 +3,10 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center mb-0" >
                 <template v-for="(link, key) in links">
-                    <li class="page-item" :class="{ 'page-item active' : link.active }">
+                    <li v-if="link.url === null" :key="key" class="page-item" :class="{ 'page-item active' : link.label === 'Next' }">{{link.label}}
+
+                    </li>
+                    <li v-else class="page-item" :class="{ 'page-item active' : link.active }">
                         <inertia-link  class="page-link" :href="link.url">{{link.label}}</inertia-link>
                     </li>
                 </template>

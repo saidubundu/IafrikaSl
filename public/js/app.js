@@ -2899,6 +2899,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Pagination",
   props: {
@@ -23399,21 +23402,31 @@ var render = function() {
         [
           _vm._l(_vm.links, function(link, key) {
             return [
-              _c(
-                "li",
-                {
-                  staticClass: "page-item",
-                  class: { "page-item active": link.active }
-                },
-                [
-                  _c(
-                    "inertia-link",
-                    { staticClass: "page-link", attrs: { href: link.url } },
-                    [_vm._v(_vm._s(link.label))]
+              link.url === null
+                ? _c(
+                    "li",
+                    {
+                      key: key,
+                      staticClass: "page-item",
+                      class: { "page-item active": link.label === "Next" }
+                    },
+                    [_vm._v(_vm._s(link.label) + "\n\n                    ")]
                   )
-                ],
-                1
-              )
+                : _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: { "page-item active": link.active }
+                    },
+                    [
+                      _c(
+                        "inertia-link",
+                        { staticClass: "page-link", attrs: { href: link.url } },
+                        [_vm._v(_vm._s(link.label))]
+                      )
+                    ],
+                    1
+                  )
             ]
           })
         ],
